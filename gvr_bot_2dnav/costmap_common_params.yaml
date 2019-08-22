@@ -1,0 +1,15 @@
+obstacle_range: 10.0
+raytrace_range: 10.0
+#footprint: [[0.5, -0.23], [0.50, 0.23], [-0.33, 0.23], [-0.33, -0.23]]
+footprint: [[0.6, -0.33], [0.60, 0.33], [-0.43, 0.33], [-0.43, -0.33]]
+
+inflation:
+  cost_scaling_factor: 4.0
+  inflation_radius: 1.5
+
+transform_tolerance: 4.0
+track_unknown_space: true
+
+observation_sources: laser_scan_sensor
+
+laser_scan_sensor: {sensor_frame: rplidar_a2_0_scan, data_type: LaserScan, topic: topic_5, marking: true, clearing: true}

@@ -1,0 +1,1008 @@
+<?xml version="1.0" ?>
+<robot name="GVR_Bot_RPLIDAR_Navigation_1">
+  <joint name="base_link_to_gvr_bot_body_0" type="fixed">
+    <parent link="base_link"/>
+    <child link="gvr_bot_body_0"/>
+  </joint>
+  <joint name="gvr_bot_body_0_to_gvr_bot_flipper_9Z_0" type="fixed">
+    <parent link="gvr_bot_body_0"/>
+    <child link="gvr_bot_flipper_9Z_0"/>
+    <origin rpy="1.93641940572 -4.62708953561e-14 1.57079632679" xyz="0.239 0.20706 0.0574455082287"/>
+  </joint>
+  <joint name="left1" type="revolute">
+    <parent link="gvr_bot_flipper_9Z_0"/>
+    <child link="rotational_cylinder_7Z_0"/>
+    <origin rpy="-1.57079632679 0.943373860071 -1.57079632679" xyz="-3.40185110086e-15 0.13695163932 0.188853395724"/>
+    <axis xyz="4.16719145039e-14 1.08266207812e-13 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left1">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left4" type="revolute">
+    <parent link="gvr_bot_flipper_9Z_0"/>
+    <child link="rotational_cylinder_10Z_0"/>
+    <origin rpy="-1.57079632679 0.943373860071 -1.57079632679" xyz="1.56319401867e-15 1.30332441096e-15 3.83606282885e-16"/>
+    <axis xyz="2.10494321936e-14 5.34546963746e-14 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left4">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left2" type="revolute">
+    <parent link="gvr_bot_flipper_9Z_0"/>
+    <child link="rotational_cylinder_6Z_0"/>
+    <origin rpy="-1.57079632679 0.943373860071 -1.57079632679" xyz="-1.83632318499e-15 0.0937159856132 0.129232349496"/>
+    <axis xyz="2.1233334186e-14 5.27683647955e-14 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left2">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left3" type="revolute">
+    <parent link="gvr_bot_flipper_9Z_0"/>
+    <child link="rotational_cylinder_8Z_0"/>
+    <origin rpy="-1.57079632679 0.943373860071 -1.57079632679" xyz="-1.42948459957e-16 0.0467498321858 0.0644670235538"/>
+    <axis xyz="2.67239868192e-14 5.42395807345e-14 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left3">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="gvr_bot_body_0_to_gvr_bot_flipper_4Z_0" type="fixed">
+    <parent link="gvr_bot_body_0"/>
+    <child link="gvr_bot_flipper_4Z_0"/>
+    <origin rpy="-0.681574472272 5.72650988307e-14 -1.57079632679" xyz="0.239 -0.20706 0.0574455082287"/>
+  </joint>
+  <joint name="right1" type="revolute">
+    <parent link="gvr_bot_flipper_4Z_0"/>
+    <child link="rotational_cylinder_2Z_0"/>
+    <origin rpy="1.57079632679 0.943373860071 -1.57079632679" xyz="2.09154302387e-16 0.13695163932 0.188853395724"/>
+    <axis xyz="-3.96031540416e-14 1.04018677886e-13 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right1">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right3" type="revolute">
+    <parent link="gvr_bot_flipper_4Z_0"/>
+    <child link="rotational_cylinder_5Z_0"/>
+    <origin rpy="1.57079632679 0.943373860071 -1.57079632679" xyz="3.46428265799e-15 0.0467498321858 0.0644670235538"/>
+    <axis xyz="-2.05037539727e-14 5.47013569674e-14 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right3">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right2" type="revolute">
+    <parent link="gvr_bot_flipper_4Z_0"/>
+    <child link="rotational_cylinder_1Z_0"/>
+    <origin rpy="1.57079632679 0.943373860071 -1.57079632679" xyz="1.78712941076e-15 0.0937159856132 0.129232349496"/>
+    <axis xyz="-2.56266026212e-14 5.18574778701e-14 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right2">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right4" type="revolute">
+    <parent link="gvr_bot_flipper_4Z_0"/>
+    <child link="rotational_cylinder_3Z_0"/>
+    <origin rpy="1.57079632679 0.943373860071 -1.57079632679" xyz="5.17275111633e-15 9.51947774283e-16 -9.47842953022e-16"/>
+    <axis xyz="-2.28812763046e-14 5.25930858396e-14 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right4">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="gvr_bot_body_0_to_gvr_bot_tread_13Z_0" type="fixed">
+    <parent link="gvr_bot_body_0"/>
+    <child link="gvr_bot_tread_13Z_0"/>
+    <origin rpy="1.57079632679 -0.0 1.57079632679" xyz="-0.01 0.12706 0.0625"/>
+  </joint>
+  <joint name="left8" type="revolute">
+    <parent link="gvr_bot_tread_13Z_0"/>
+    <child link="rotational_cylinder_14Z_0"/>
+    <origin rpy="-3.14159265359 -1.57079632679 0.0" xyz="-1.42108547152e-17 0.0 8.70163887006e-34"/>
+    <axis xyz="-6.12323399574e-17 -3.74939945665e-33 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left8">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left6" type="revolute">
+    <parent link="gvr_bot_tread_13Z_0"/>
+    <child link="rotational_cylinder_11Z_0"/>
+    <origin rpy="-3.14159265359 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 0.1"/>
+    <axis xyz="-6.12323399574e-17 -3.74939945665e-33 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left6">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left5" type="revolute">
+    <parent link="gvr_bot_tread_13Z_0"/>
+    <child link="rotational_cylinder_17Z_0"/>
+    <origin rpy="-3.14159265359 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 0.249998846352"/>
+    <axis xyz="-6.12323399574e-17 -3.74939945665e-33 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left5">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left10" type="revolute">
+    <parent link="gvr_bot_tread_13Z_0"/>
+    <child link="rotational_cylinder_15Z_0"/>
+    <origin rpy="-3.14159265359 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 -0.250000787001"/>
+    <axis xyz="-6.12323399574e-17 -3.74939945665e-33 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left10">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left7" type="revolute">
+    <parent link="gvr_bot_tread_13Z_0"/>
+    <child link="rotational_cylinder_12Z_0"/>
+    <origin rpy="-3.14159265359 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.01 8.70163887006e-34"/>
+    <axis xyz="-6.12323399574e-17 -3.74939945665e-33 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left7">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="left9" type="revolute">
+    <parent link="gvr_bot_tread_13Z_0"/>
+    <child link="rotational_cylinder_16Z_0"/>
+    <origin rpy="-3.14159265359 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 -0.1"/>
+    <axis xyz="-6.12323399574e-17 -3.74939945665e-33 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="left9">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="gvr_bot_body_0_to_gvr_bot_tread_22Z_0" type="fixed">
+    <parent link="gvr_bot_body_0"/>
+    <child link="gvr_bot_tread_22Z_0"/>
+    <origin rpy="1.57079632679 -0.0 -1.57079632679" xyz="-0.01 -0.12706 0.0625"/>
+  </joint>
+  <joint name="right7" type="revolute">
+    <parent link="gvr_bot_tread_22Z_0"/>
+    <child link="rotational_cylinder_20Z_0"/>
+    <origin rpy="-3.14159265359 1.57079632679 0.0" xyz="-1.42108547152e-17 0.0 8.70163887006e-34"/>
+    <axis xyz="-6.12323399574e-17 1.22464679915e-16 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right7">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right5" type="revolute">
+    <parent link="gvr_bot_tread_22Z_0"/>
+    <child link="rotational_cylinder_18Z_0"/>
+    <origin rpy="-1.22464679915e-16 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 -0.250000787001"/>
+    <axis xyz="6.12323399574e-17 -1.22464679915e-16 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right5">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right6" type="revolute">
+    <parent link="gvr_bot_tread_22Z_0"/>
+    <child link="rotational_cylinder_21Z_0"/>
+    <origin rpy="-3.14159265359 1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 -0.1"/>
+    <axis xyz="-6.12323399574e-17 1.22464679915e-16 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right6">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right10" type="revolute">
+    <parent link="gvr_bot_tread_22Z_0"/>
+    <child link="rotational_cylinder_19Z_0"/>
+    <origin rpy="-1.22464679915e-16 -1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 0.249998846352"/>
+    <axis xyz="6.12323399574e-17 -1.22464679915e-16 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right10">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right8" type="revolute">
+    <parent link="gvr_bot_tread_22Z_0"/>
+    <child link="rotational_cylinder_24Z_0"/>
+    <origin rpy="-3.14159265359 1.57079632679 0.0" xyz="-1.42108547152e-17 -0.01 8.70163887006e-34"/>
+    <axis xyz="-6.12323399574e-17 1.22464679915e-16 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right8">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="right9" type="revolute">
+    <parent link="gvr_bot_tread_22Z_0"/>
+    <child link="rotational_cylinder_23Z_0"/>
+    <origin rpy="-3.14159265359 1.57079632679 0.0" xyz="-1.42108547152e-17 -0.005 0.1"/>
+    <axis xyz="-6.12323399574e-17 1.22464679915e-16 1.0"/>
+    <dynamics damping="0" friction="0"/>
+    <limit effort="200" lower="-2.14e9" upper="+2.14e9" velocity="100"/>
+  </joint>
+  <gazebo reference="right9">
+    <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+  <joint name="gvr_bot_body_0_to_plexiglass_platform_0" type="fixed">
+    <parent link="gvr_bot_body_0"/>
+    <child link="plexiglass_platform_0"/>
+    <origin rpy="0.0 -6.12323399574e-17 0.0" xyz="1e-23 1e-23 0.12"/>
+  </joint>
+  <joint name="plexiglass_platform_0_to_rplidar_a2_0" type="fixed">
+    <parent link="plexiglass_platform_0"/>
+    <child link="rplidar_a2_0"/>
+    <origin rpy="6.12323399574e-17 -0.0 1.57079632679" xyz="0.26 -2.6645452591e-18 0.066"/>
+  </joint>
+  <link name="base_link">
+    <CyPhy2CAD>
+      <CADAssembly_metrics>
+        <RotationMatrix>
+          <Row>
+            <Column Value="1.0"/>
+            <Column Value="0.0"/>
+            <Column Value="0.0"/>
+          </Row>
+          <Row>
+            <Column Value="0.0"/>
+            <Column Value="1.0"/>
+            <Column Value="0.0"/>
+          </Row>
+          <Row>
+            <Column Value="0.0"/>
+            <Column Value="0.0"/>
+            <Column Value="1.0"/>
+          </Row>
+        </RotationMatrix>
+        <Translation X="1e-20" Y="1e-20" Z="1e-20"/>
+      </CADAssembly_metrics>
+    </CyPhy2CAD>
+  </link>
+  <link name="rotational_cylinder_24Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_24Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_20Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="8.70163887006e-34 -1.74032777401e-33 -0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.70163887006e-34 -1.74032777401e-33 -0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_20Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_16Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_16Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="gvr_bot_body_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="1e-23 1e-23 1e-23"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/gvr_bot_body_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="1e-23 1e-23 1e-23"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/gvr_bot_body_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0162648644683 1e-23 0.0508416849457"/>
+      <mass value="25.048697501394287"/>
+      <inertia ixx="0.162838436291" ixy="0.0" ixz="-0.0134083347617" iyy="0.743638566943" iyz="0.0" izz="0.865993591962"/>
+    </inertial>
+  </link>
+  <gazebo reference="gvr_bot_body_0">
+    <selfCollide>True</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>0.05</mu1>
+    <mu2>0.05</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>
+    <minDepth>0.0005</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_23Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_23Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_12Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_12Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_7Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="-4.87161526035e-16 1.5434930097e-14 0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.035"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-4.87161526035e-16 1.5434930097e-14 0.025"/>
+      <mass value="0.010275364171728817"/>
+      <inertia ixx="5.28752782089e-06" ixy="0.0" ixz="0.0" iyy="5.28753447251e-06" iyz="0.0" izz="6.29366055518e-06"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_7Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_6Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="7.86534465657e-16 3.65339657213e-15 0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="7.86534465657e-16 3.65339657213e-15 0.025"/>
+      <mass value="0.020970130962711872"/>
+      <inertia ixx="1.74751095511e-05" ixy="0.0" ixz="0.0" iyy="1.74751087201e-05" iyz="0.0" izz="2.62126637034e-05"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_6Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_5Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="3.23931577958e-16 -1.42855521244e-15 -0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.067"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="3.23931577958e-16 -1.42855521244e-15 -0.025"/>
+      <mass value="0.037653967156645436"/>
+      <inertia ixx="5.01017424722e-05" ixy="0.0" ixz="0.0" iyy="5.01017397928e-05" iyz="0.0" izz="8.45143292831e-05"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_5Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_15Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="-8.70163887006e-34 -5.32821709478e-50 0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-8.70163887006e-34 -5.32821709478e-50 0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_15Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_11Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_11Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_1Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="5.20207006246e-17 -6.33396108434e-16 -0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="5.20207006246e-17 -6.33396108434e-16 -0.025"/>
+      <mass value="0.020970130962711872"/>
+      <inertia ixx="1.74751095511e-05" ixy="0.0" ixz="0.0" iyy="1.74751087201e-05" iyz="0.0" izz="2.62126637034e-05"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_1Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_17Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="8.70163887006e-34 5.32821709478e-50 0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.70163887006e-34 5.32821709478e-50 0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_17Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_10Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="8.7651440623e-16 3.42739991492e-15 0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.7651440623e-16 3.42739991492e-15 0.025"/>
+      <mass value="0.0606036784822373"/>
+      <inertia ixx="0.000122091164079" ixy="0.0" ixz="0.0" iyy="0.000122091157139" iyz="0.0" izz="0.000218930788517"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_10Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="plexiglass_platform_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.0974742239804 0.00581091197438 0.0375579898642"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/plexiglass_platform_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.0974742239804 0.00581091197438 0.0375579898642"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/plexiglass_platform_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00312874244791 4.23675569412e-06 0.0579997476994"/>
+      <mass value="2.6640368579972415"/>
+      <inertia ixx="0.0396059563947" ixy="0.0" ixz="0.00022940388755" iyy="0.0805502430789" iyz="0.0" izz="0.119329632902"/>
+    </inertial>
+  </link>
+  <gazebo reference="plexiglass_platform_0">
+    <selfCollide>True</selfCollide>
+    <material>Gazebo/GreyTransparent</material>
+    <mu1>0.05</mu1>
+    <mu2>0.05</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>
+    <minDepth>0</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_3Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="1.94936111916e-16 -7.27511473902e-16 -0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="1.94936111916e-16 -7.27511473902e-16 -0.025"/>
+      <mass value="0.0606036784822373"/>
+      <inertia ixx="0.000122091164079" ixy="0.0" ixz="0.0" iyy="0.000122091157139" iyz="0.0" izz="0.000218930788517"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_3Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_19Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="8.70163887006e-34 -1.74032777401e-33 -0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.70163887006e-34 -1.74032777401e-33 -0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_19Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="gvr_bot_tread_22Z_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="-1.42108547152e-17 0.0 0.00687141668333"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/gvr_bot_tread_22z_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-1.42108547152e-17 0.0 0.00687141668333"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0343748145549 -0.0143580795047 -0.000521482183074"/>
+      <mass value="0.001"/>
+      <inertia ixx="1.66e-8" ixy="0" ixz="0" iyy="1.66e-8" iyz="0" izz="1.66e-8"/>
+    </inertial>
+  </link>
+  <gazebo reference="gvr_bot_tread_22Z_0">
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Black</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_18Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="-8.70163887006e-34 1.74032777401e-33 -0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-8.70163887006e-34 1.74032777401e-33 -0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_18Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="gvr_bot_tread_13Z_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="-1.42108547152e-17 0.0 0.00687141668333"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/gvr_bot_tread_13z_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-1.42108547152e-17 0.0 0.00687141668333"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0343748145549 -0.0143580795047 -0.000521482183074"/>
+      <mass value="0.001"/>
+      <inertia ixx="1.66e-8" ixy="0" ixz="0" iyy="1.66e-8" iyz="0" izz="1.66e-8"/>
+    </inertial>
+  </link>
+  <gazebo reference="gvr_bot_tread_13Z_0">
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Black</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_2Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="-1.03720723699e-15 3.87091010642e-15 -0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.035"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.03720723699e-15 3.87091010642e-15 -0.025"/>
+      <mass value="0.010275364171728817"/>
+      <inertia ixx="5.28752782089e-06" ixy="0.0" ixz="0.0" iyy="5.28753447251e-06" iyz="0.0" izz="6.29366055518e-06"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_2Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_21Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_21Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_14Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <geometry>
+        <cylinder length="0.0825" radius="0.085"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.04125"/>
+      <mass value="0.09999606949569155"/>
+      <inertia ixx="0.00023733442692" ixy="0.0" ixz="0.0" iyy="0.000237334415467" iyz="0.0" izz="0.000361235801053"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_14Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="rplidar_a2_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="4.4408920985e-18 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/rplidar_a2_asm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="4.4408920985e-18 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/rplidar_a2_asm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.000130340672722 -0.00136533102019 0.0205166626404"/>
+      <mass value="0.18821621589950202"/>
+      <inertia ixx="8.13361235458e-05" ixy="-2.24566593777e-07" ixz="7.5260897031e-09" iyy="7.83925013627e-05" iyz="2.44355055998e-06" izz="0.000134676697915"/>
+    </inertial>
+  </link>
+  <gazebo reference="rplidar_a2_0">
+    <selfCollide>True</selfCollide>
+    <material>Gazebo/Black</material>
+    <mu1>0.05</mu1>
+    <mu2>0.05</mu2>
+    <kp>10000000</kp>
+    <kd>1</kd>
+    <minDepth>0.0005</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="gvr_bot_flipper_4Z_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0237972102461 -0.00201595867467 -0.000117379872234"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/gvr_bot_flipper_4z_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0237972102461 -0.00201595867467 -0.000117379872234"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0234187179527 0.0315726270595 0.0435260789695"/>
+      <mass value="0.001"/>
+      <inertia ixx="1.66e-8" ixy="0" ixz="0" iyy="1.66e-8" iyz="0" izz="1.66e-8"/>
+    </inertial>
+  </link>
+  <gazebo reference="gvr_bot_flipper_4Z_0">
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Black</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <link name="rotational_cylinder_8Z_0">
+    <collision>
+      <origin rpy="0 0 0" xyz="8.26728832599e-16 3.72301525785e-15 0.025"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.067"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.26728832599e-16 3.72301525785e-15 0.025"/>
+      <mass value="0.037653967156645436"/>
+      <inertia ixx="5.01017424722e-05" ixy="0.0" ixz="0.0" iyy="5.01017397928e-05" iyz="0.0" izz="8.45143292831e-05"/>
+    </inertial>
+  </link>
+  <gazebo reference="rotational_cylinder_8Z_0">
+    <selfCollide>False</selfCollide>
+    <material>Gazebo/Grey</material>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e+08</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1</maxVel>
+  </gazebo>
+  <link name="gvr_bot_flipper_9Z_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0237972102461 -0.00201595867467 -0.000117379872232"/>
+      <geometry>
+        <mesh filename="package://gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28/meshes/gvr_bot_flipper_9z_prt.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0237972102461 -0.00201595867467 -0.000117379872232"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0234187179527 0.0315726270595 0.0435260789695"/>
+      <mass value="0.001"/>
+      <inertia ixx="1.66e-8" ixy="0" ixz="0" iyy="1.66e-8" iyz="0" izz="1.66e-8"/>
+    </inertial>
+  </link>
+  <gazebo reference="gvr_bot_flipper_9Z_0">
+    <selfCollide>true</selfCollide>
+    <material>Gazebo/Black</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000</kp>
+    <kd>1</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>100</maxVel>
+  </gazebo>
+  <gazebo>
+    <plugin filename="libdiffdrive_plugin_multi_wheel.so" name="diffdrive_plugin_multiwheel">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <leftJoints>left1 left2 left3 left4 left5 left6 left7 left8 left9 left10</leftJoints>
+      <rightJoints>right1 right2 right3 right4 right5 right6 right7 right8 right9 right10</rightJoints>
+      <wheelSeparation>0.3</wheelSeparation>
+      <wheelDiameter>0.07 0.1 0.124 0.17 0.17 0.17 0.17 0.17 0.17 0.17</wheelDiameter>
+      <torque>1000</torque>
+      <robotNamespace>/</robotNamespace>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <commandTopic>topic_4</commandTopic>
+      <publishOdometryTf>false</publishOdometryTf>
+      <publishOdometryMsg>false</publishOdometryMsg>
+      <odometryTopic>odom</odometryTopic>
+    </plugin>
+  </gazebo>
+  <joint name="rplidar_a2_0_to_scan" type="fixed">
+    <parent link="rplidar_a2_0"/>
+    <child link="rplidar_a2_0_scan"/>
+    <origin rpy="0 0 0" xyz="0 0 0.03075"/>
+  </joint>
+  <link name="rplidar_a2_0_scan"/>
+  <gazebo reference="rplidar_a2_0_scan">
+    <sensor name="rplidar_a2_0_scan" type="gpu_ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>15</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>+3.14159</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.04</min>
+          <max>12.0</max>
+          <resolution>0.002</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.008</stddev>
+        </noise>
+      </ray>
+      <plugin filename="libgazebo_ros_gpu_laser.so" name="gazebo_ros_laser_controller">
+        <topicName>topic_5</topicName>
+        <frameName>rplidar_a2_0_scan</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_p3d.so" name="ground_truth">
+      <frameName>map</frameName>
+      <bodyName>base_link</bodyName>
+      <topicName>odometry/base_link</topicName>
+      <updateRate>2.0</updateRate>
+    </plugin>
+  </gazebo>
+
+</robot>

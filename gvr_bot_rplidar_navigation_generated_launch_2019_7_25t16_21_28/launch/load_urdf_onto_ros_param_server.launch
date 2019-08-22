@@ -1,0 +1,8 @@
+<launch>
+  <arg name="ns" default="/"/>
+
+  <arg name="urdf_path" default="$(find gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28)/urdf/gvr_bot_rplidar_navigation.urdf"/>
+
+  <!-- Load the URDF model only the parameter server -->
+  <param name="robot_description" textfile="$(arg urdf_path)"/>
+</launch>

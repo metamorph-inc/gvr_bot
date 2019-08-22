@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg default="/" name="ns"/>
+  <!--Nodes-->
+  <node launch-prefix="xterm -e" name="rviz1" output="screen" pkg="rviz" type="rviz"/>
+  <node launch-prefix="xterm -e" name="robot_state_publisher1" output="screen" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="use_tf_static" value="false"/>
+  </node>
+  <node launch-prefix="xterm -e" name="move_base1" output="screen" pkg="move_base" type="move_base">
+    <param name="local_costmap/static_map" value="false"/>
+    <param name="TrajectoryPlannerROS/escape_vel" value="-1.0"/>
+    <param name="global_costmap/obstacle_range" value="10.0"/>
+    <param name="global_costmap/inflation/inflation_radius" value="1.0"/>
+    <param name="local_costmap/rolling_window" value="true"/>
+    <param name="local_costmap/transform_tolerance" value="4.0"/>
+    <param name="local_costmap/update_frequency" value="5"/>
+    <param name="local_costmap/obstacle_range" value="10.0"/>
+    <param name="global_costmap/width" value="100.0"/>
+    <param name="global_costmap/origin_y" value="-50.0"/>
+    <param name="global_costmap/origin_x" value="-50.0"/>
+    <param name="local_costmap/inflation/inflation_radius" value="1.0"/>
+    <param name="local_costmap/height" value="10.0"/>
+    <param name="global_costmap/static_map" value="true"/>
+    <param name="local_costmap/width" value="10.0"/>
+    <param name="global_costmap/global_frame" value="/map"/>
+    <param name="local_costmap/raytrace_range" value="10.0"/>
+    <param name="local_costmap/laser_scan_sensor" value="{sensor_frame: rplidar_a2_0_scan, data_type: LaserScan, topic: topic_5, marking: true, clearing: true}"/>
+    <param name="TrajectoryPlannerROS/min_in_place_vel_theta" value="-1.0"/>
+    <param name="global_costmap/footprint" value="[[0.1, -0.1], [0.1, 0.1], [-0.1, 0.1], [-0.1, -0.1]]"/>
+    <param name="global_costmap/laser_scan_sensor" value="{sensor_frame: rplidar_a2_0_scan, data_type: LaserScan, topic: topic_5, marking: true, clearing: true}"/>
+    <param name="local_costmap/robot_base_frame" value="base_link"/>
+    <param name="TrajectoryPlannerROS/holomonic_robot" value="false"/>
+    <param name="TrajectoryPlannerROS/sim_time" value="5.0"/>
+    <param name="local_costmap/observation_sources" value="laser_scan_sensor"/>
+    <param name="global_costmap/inflation/cost_scaling_factor" value="10.0"/>
+    <param name="global_costmap/height" value="100.0"/>
+    <param name="local_costmap/footprint" value="[[0.1, -0.1], [0.1, 0.1], [-0.1, 0.1], [-0.1, -0.1]]"/>
+    <param name="TrajectoryPlannerROS/acc_lim_theta" value="1.0"/>
+    <param name="global_costmap/update_frequency" value="5"/>
+    <param name="global_costmap/raytrace_range" value="10.0"/>
+    <param name="local_costmap/track_unknown_space" value="false"/>
+    <param name="TrajectoryPlannerROS/vx_samples" value="4"/>
+    <param name="TrajectoryPlannerROS/acc_lim_x" value="1.0"/>
+    <param name="local_costmap/inflation/cost_scaling_factor" value="10.0"/>
+    <param name="global_costmap/observation_sources" value="laser_scan_sensor"/>
+    <param name="TrajectoryPlannerROS/min_vel_x" value="0.1"/>
+    <param name="global_costmap/transform_tolerance" value="4.0"/>
+    <param name="TrajectoryPlannerROS/max_vel_theta" value="1.0"/>
+    <param name="local_costmap/resolution" value="0.05"/>
+    <param name="local_costmap/global_frame" value="map"/>
+    <param name="local_costmap/publish_frequency" value="2"/>
+    <param name="TrajectoryPlannerROS/xy_goal_tolerance" value="0.1"/>
+    <param name="TrajectoryPlannerROS/max_vel_x" value="1.0"/>
+    <param name="global_costmap/track_unknown_space" value="false"/>
+    <param name="global_costmap/robot_base_frame" value="base_link"/>
+    <param name="TrajectoryPlannerROS/min_vel_theta" value="-1.0"/>
+    <param name="TrajectoryPlannerROS/yaw_goal_tolerance" value="0.1"/>
+    <remap from="cmd_vel" to="topic_4"/>
+  </node>
+  <node launch-prefix="xterm -e" name="hector_mapping1" output="screen" pkg="hector_mapping" type="hector_mapping">
+    <param name="map_size" value="2048"/>
+    <param name="map_multi_res_levels" value="2"/>
+    <param name="pub_debug_output" value="true"/>
+    <param name="base_frame" value="base_link"/>
+    <param name="map_update_distance_thresh" value="0.4"/>
+    <param name="output_timing" value="false"/>
+    <param name="use_tf_pose_start_estimate" value="false"/>
+    <param name="advertise_map_service" value="true"/>
+    <param name="update_factor_occupied" value="0.9"/>
+    <param name="scan_subscriber_queue_size" value="5"/>
+    <param name="tf_map_scanmatch_transform_frame_name" value="scanmatcher_frame"/>
+    <param name="pub_map_odom_transform" value="true"/>
+    <param name="odom_frame" value="base_link"/>
+    <param name="use_tf_scan_transformation" value="true"/>
+    <param name="map_update_angle_thresh" value="0.06"/>
+    <param name="map_resolution" value="0.05"/>
+    <param name="laser_z_max_value" value="1.0"/>
+    <param name="map_start_x" value="0.5"/>
+    <param name="map_start_y" value="0.5"/>
+    <param name="scan_topic" value="topic_5"/>
+    <param name="map_frame" value="map"/>
+    <param name="laser_z_min_value" value="-1.0"/>
+    <param name="update_factor_free" value="0.4"/>
+    <param name="pub_drawings" value="true"/>
+  </node>
+  <!--HEBI-ROS Node-->
+  <include file="$(find hebiros)/launch/hebiros_gazebo.launch"/>
+</launch>

@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg default="/" name="ns"/>
+  <!--Load URDF onto ROS Parameter Server, start Gazebo, and spawn robot model-->
+  <include file="$(find gvr_bot_rplidar_hector_map_generated_launch_2019_5_10t16_55_19)/launch/start_gazebo.launch">
+    <arg name="ns" value="$(arg ns)"/>
+    <arg name="paused" value="true"/>
+    <arg name="world_name" value="$(find gazebo_world_library)/world/GVR_Bot/maze_1.world"/>
+  </include>
+  <include file="$(find gvr_bot_rplidar_hector_map_generated_launch_2019_5_10t16_55_19)/launch/spawn_urdf_in_gazebo.launch" ns="$(arg ns)">
+    <arg name="ns" value="$(arg ns)"/>
+    <arg name="urdf_path_bool" value="false"/>
+    <arg name="spawn_x" value="0."/>
+    <arg name="spawn_y" value="0."/>
+    <arg name="spawn_z" value="2."/>
+    <arg name="spawn_roll" value="0."/>
+    <arg name="spawn_pitch" value="0."/>
+    <arg name="spawn_yaw" value="0."/>
+  </include>
+  <include file="$(find gvr_bot_rplidar_hector_map_generated_launch_2019_5_10t16_55_19)/launch/robot_navigation.launch" ns="$(arg ns)">
+    <arg name="ns" value="$(arg ns)"/>
+  </include>
+  <include file="$(find openmeta_testbench_simulation_executor)/launch/unpause_simulation.launch">
+    <arg name="timeout" value="0"/>
+  </include>
+</launch>

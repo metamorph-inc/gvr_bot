@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg default="/" name="ns"/>
+  <!--HEBI-ROS Node-->
+  <include file="$(find hebiros)/launch/hebiros_gazebo.launch"/>
+  <!--ROS nodes-->
+  <node launch-prefix="xterm -e" name="robot_state_publisher1" output="screen" pkg="robot_state_publisher" type="robot_state_publisher">
+  <param name="use_tf_static" value="false"/>
+  </node>
+  <node launch-prefix="xterm -e" name="hector_mapping1" output="screen" pkg="hector_mapping" type="hector_mapping">
+    <param name="map_size" value="2048"/>
+    <param name="map_multi_res_levels" value="2"/>
+    <param name="base_frame" value="base_link"/>
+    <param name="pub_debug_output" value="true"/>
+    <param name="map_update_distance_thresh" value="0.4"/>
+    <param name="output_timing" value="false"/>
+    <param name="use_tf_pose_start_estimate" value="false"/>
+    <param name="advertise_map_service" value="true"/>
+    <param name="update_factor_occupied" value="0.9"/>
+    <param name="scan_subscriber_queue_size" value="5"/>
+    <param name="tf_map_scanmatch_transform_frame_name" value="scanmatcher_frame"/>
+    <param name="pub_map_odom_transform" value="true"/>
+    <param name="odom_frame" value="base_link"/>
+    <param name="use_tf_scan_transformation" value="true"/>
+    <param name="map_update_angle_thresh" value="0.06"/>
+    <param name="map_resolution" value="0.05"/>
+    <param name="laser_z_max_value" value="1.0"/>
+    <param name="map_start_x" value="0.5"/>
+    <param name="map_start_y" value="0.5"/>
+    <param name="scan_topic" value="topic_5"/>
+    <param name="map_frame" value="map"/>
+    <param name="laser_z_min_value" value="-1.0"/>
+    <param name="update_factor_free" value="0.4"/>
+    <param name="pub_drawings" value="true"/>
+  </node>
+  <node launch-prefix="xterm -e" name="rviz1" output="screen" pkg="rviz" type="rviz"/>
+</launch>
