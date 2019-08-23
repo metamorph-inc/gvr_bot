@@ -9,7 +9,6 @@ project(gvr_bot_2dnav)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   move_base
-  gvr_bot_rplidar_hector_map_generated_launch_2019_5_10t16_55_19
   openmeta_testbench_simulation_executor
 )
 
