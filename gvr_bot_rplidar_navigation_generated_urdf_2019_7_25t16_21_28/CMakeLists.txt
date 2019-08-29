@@ -8,9 +8,6 @@ project(gvr_bot_rplidar_navigation_generated_urdf_2019_7_25t16_21_28)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  # hebiros  ## Uncomment once hebiros node is on ROS Kinetic build farm
-  roscpp
-  rospy
 )
 
 include_directories(

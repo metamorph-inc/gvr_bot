@@ -8,11 +8,6 @@ project(gvr_bot_simulation)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  move_base_msgs
-  nav_msgs
-  move_base_msgs
 )
 
 ## System dependencies are found with CMake's conventions

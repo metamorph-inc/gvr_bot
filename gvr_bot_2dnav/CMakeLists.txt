@@ -8,8 +8,6 @@ project(gvr_bot_2dnav)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  move_base
-  openmeta_testbench_simulation_executor
 )
 
 ## DEPENDS: system dependencies of this project that dependent projects also need
