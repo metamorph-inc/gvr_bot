@@ -19,10 +19,10 @@
   <include file="$(find gvr_bot_rplidar_hector_map_generated_launch_2019_5_10t16_55_19)/launch/robot.launch" ns="$(arg ns)">
     <arg name="ns" value="$(arg ns)"/>
   </include>
-  <include file="$(find openmeta_testbench_simulation_executor)/launch/unpause_simulation.launch">
+  <include file="$(find openmeta_ros_simulation_testbench_executor)/launch/unpause_simulation.launch">
     <arg name="timeout" value="0"/>
   </include>
-  <include file="$(find openmeta_testbench_simulation_executor)/launch/set_simulation_timer.launch">
+  <include file="$(find openmeta_ros_simulation_testbench_executor)/launch/set_simulation_timer.launch">
     <arg name="timeout" value="3.154e+7"/>
     <arg name="sim_start_delay" value="0"/>
     <arg name="sim_max_pause_duration" value="600.0"/>
