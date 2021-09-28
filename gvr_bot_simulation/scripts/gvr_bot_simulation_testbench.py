@@ -26,6 +26,18 @@ def load_json_file(filename):
     return json_dict
 
 
+def load_json_file(filename):
+    print("Opening {} ...".format(filename))
+    json_dict = None
+    try:
+        with open(filename) as f_in:
+            json_dict = json.load(f_in)
+    except IOError:
+        print("No {} file found.".format(filename))
+        pass
+    return json_dict
+
+
 def distance(pt1, pt2):
     if len(pt1) != len(pt2):
         raise ValueError("Received two points/vectors of unequal length! Both points/vectors must be of equal length")
