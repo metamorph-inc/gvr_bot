@@ -2,6 +2,8 @@
 
 import math as m
 import json
+import os
+import os.path as path
 
 import rospy
 from actionlib import SimpleActionClient
@@ -9,6 +11,7 @@ from actionlib_msgs.msg import GoalStatus
 
 from nav_msgs.msg import Odometry
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from rospy_message_converter import message_converter
 
 #MIN_THRESHOLD = 2.0  # meters
 #STUCK_THRESHOLD = 0.2  # meters
@@ -44,6 +47,7 @@ class GVRBotSimulationTestbench(object):
         self.rate = ros_rate
         self.goal_xy_positions = goal_xy_positions
 
+        self.odometry = []
         self.times = []
         self._initial_x_position = None
         self._initial_y_position = None
@@ -54,16 +58,7 @@ class GVRBotSimulationTestbench(object):
         self.openmeta_testbench_manifest_path = rospy.get_param('~openmeta/testbench_manifest_path', None)
         if self.openmeta_testbench_manifest_path is not None:
             self._testbench_manifest = load_json_file(self.openmeta_testbench_manifest_path)
-
-            # TestBench Parameters
-            self._params = {}
-            for tb_param in self._testbench_manifest['Parameters']:
-                self._params[tb_param['Name']] = tb_param['Value']  # WARNING: If you use these values - make sure to check the type
-
-            # TestBench Metrics
-            self._metrics = {}
-            for tb_metric in self._testbench_manifest['Metrics']:  # FIXME: Hmm, this is starting to look a lot like OpenMDAO...
-                self._metrics[tb_metric['Name']] = tb_metric['Value']
+            self._read_tb_manifest()
 
         # Simple Action Client
         move_base_action = '/move_base'
@@ -76,8 +71,7 @@ class GVRBotSimulationTestbench(object):
         self.current_xy_position = None
         self.prev_xy_position = None
         self.stuck_time = None
-        self.odometry_subscriber = rospy.Subscriber('/odometry/base_link', Odometry,
-                                                    self._odometry_cb)
+        self.odometry_subscriber = rospy.Subscriber('odom', Odometry, self._odometry_cb)
 
     def execute(self):
         rospy.loginfo("Waiting for simulation to start + 1.0 sec")
@@ -95,9 +89,18 @@ class GVRBotSimulationTestbench(object):
             else:
                 break  # no more waypoints!
 
+        # record total simulation time
+        self._metrics['simulation_time'] = rospy.get_time()
+        # Save odometry data to file
+        testbench_folder_path = os.path.dirname(self.openmeta_testbench_manifest_path)
+        with open(os.path.join(testbench_folder_path, "odometry.json"), 'w') as savefile:
+            json_str = json.dumps(self.odometry, sort_keys=True, indent=2, separators=(',', ': '))
+            savefile.write(json_str)
+        self._fileoutputs['odometry_file'] = "odometry.json"
+
         if self.openmeta_testbench_manifest_path is not None:
-            pass
-            self._write_metrics_to_tb_manifest()
+            self._update_tb_manifest()
+            self._write_tb_manifest()
 
     def send_goal_to_movebase_action_server(self, x, y):
         rospy.loginfo("Send MoveBaseAction request")
@@ -114,6 +117,9 @@ class GVRBotSimulationTestbench(object):
         self.move_base_action_client.send_goal(goal)
 
     def _odometry_cb(self, msg):
+        odom_dict = message_converter.convert_ros_message_to_dictionary(msg)
+        self.odometry.append(odom_dict)
+
         self.times.append(msg.header.stamp.secs)
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -129,12 +135,39 @@ class GVRBotSimulationTestbench(object):
             self._initial_y_position = y
             self._initial_z_position = z
 
-    def _write_metrics_to_tb_manifest(self):
-        # Write to testbench_manifest metric
+    def _read_tb_manifest(self):
+        # Parameters
+        self._params = {}
+        for tb_param in self._testbench_manifest['Parameters']:
+            self._params[tb_param['Name']] = tb_param['Value']  # WARNING: If you use these values - make sure to check the type
+
+        # Metrics
+        self._metrics = {}
+        for tb_metric in self._testbench_manifest['Metrics']:
+            self._metrics[tb_metric['Name']] = tb_metric['Value']
+
+        # File Inputs
+        self._fileinputs = {}
+        for tb_fileinput in self._testbench_manifest['FileInputs']:
+            self._fileinputs[tb_fileinput['Name']] = tb_fileinput['FileName']
+
+        # File Outputs
+        self._fileoutputs = {}
+        for tb_fileoutput in self._testbench_manifest['FileOutputs']:
+            self._fileoutputs[tb_fileoutput['Name']] = tb_fileoutput['FileName']
+
+    def _update_tb_manifest(self):
+        # Metrics
         for tb_metric in self._testbench_manifest['Metrics']:
             if tb_metric['Name'] in self._metrics:
                 tb_metric['Value'] = self._metrics[tb_metric['Name']]
 
+        # File Outputs
+        for tb_fileoutput in self._testbench_manifest['FileOutputs']:
+            if tb_fileoutput['Name'] in self._fileoutputs:
+                tb_fileoutput['Value'] = self._fileoutputs[tb_fileoutput['Name']]
+
+    def _write_tb_manifest(self):
         # Save updated testbench_manifest.json
         with open(self.openmeta_testbench_manifest_path, 'w') as savefile:
             json_str = json.dumps(self._testbench_manifest, sort_keys=True, indent=2, separators=(',', ': '))
