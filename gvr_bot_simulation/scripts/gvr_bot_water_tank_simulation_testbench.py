@@ -2,7 +2,6 @@
 
 import math as m
 import json
-import os
 import os.path as path
 
 import rospy
@@ -11,6 +10,7 @@ from actionlib_msgs.msg import GoalStatus
 
 from nav_msgs.msg import Odometry
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from gazebo_msgs.msg import LinkStates
 from rospy_message_converter import message_converter
 
 #MIN_THRESHOLD = 2.0  # meters
@@ -73,6 +73,12 @@ class GVRBotSimulationTestbench(object):
         self.stuck_time = None
         self.odometry_subscriber = rospy.Subscriber('odom', Odometry, self._odometry_cb)
 
+        self.gazebo_links_subscriber = rospy.Subscriber('/gazebo/link_states', LinkStates, self._link_states_cb)
+        self._sphere_link_name = None
+        self._sphere_link_index = None
+        self.odometry_publisher = rospy.Publisher('odom', Odometry)
+        self._prev_odom_record_time = None
+
     def execute(self):
         rospy.loginfo("Waiting for simulation to start + 1.0 sec")
         while not rospy.is_shutdown() and rospy.get_time() < 1.0:
@@ -92,8 +98,8 @@ class GVRBotSimulationTestbench(object):
         # record total simulation time
         self._metrics['simulation_time'] = rospy.get_time()
         # Save odometry data to file
-        testbench_folder_path = os.path.dirname(self.openmeta_testbench_manifest_path)
-        with open(os.path.join(testbench_folder_path, "odometry.json"), 'w') as savefile:
+        testbench_folder_path = path.dirname(self.openmeta_testbench_manifest_path)
+        with open(path.join(testbench_folder_path, "odometry.json"), 'w') as savefile:
             json_str = json.dumps(self.odometry, sort_keys=True, indent=2, separators=(',', ': '))
             savefile.write(json_str)
         self._fileoutputs['odometry_file'] = "odometry.json"
@@ -117,8 +123,13 @@ class GVRBotSimulationTestbench(object):
         self.move_base_action_client.send_goal(goal)
 
     def _odometry_cb(self, msg):
-        odom_dict = message_converter.convert_ros_message_to_dictionary(msg)
-        self.odometry.append(odom_dict)
+        # TODO: Replace with ROS message filtering
+        if self._prev_odom_record_time is None:
+            self._prev_odom_record_time = rospy.get_time()
+        elif rospy.get_time() - self._prev_odom_record_time > 0.1:
+            odom_dict = message_converter.convert_ros_message_to_dictionary(msg)
+            self.odometry.append(odom_dict)
+            self._prev_odom_record_time = rospy.get_time()
 
         self.times.append(msg.header.stamp.secs)
         x = msg.pose.pose.position.x
@@ -134,6 +145,30 @@ class GVRBotSimulationTestbench(object):
             self._initial_x_position = x
             self._initial_y_position = y
             self._initial_z_position = z
+
+    def _link_states_cb(self, msg):
+        """
+
+        :param msg:
+        :type msg: LinkStates
+        :return:
+        """
+        if self._sphere_link_name is None:
+            for i, name in enumerate(msg.name):
+                if "sphere" in name.lower():
+                    self._sphere_link_name = name
+                    self._sphere_link_index = i
+                    break
+        else:
+            odom = Odometry()
+            odom.header.stamp = rospy.Time.now()
+            odom.header.frame_id = "odom"
+            odom.child_frame_id = "sphere"
+            odom.pose.pose = msg.pose[self._sphere_link_index]
+            odom.pose.covariance = [0]*36
+            odom.twist.twist = msg.twist[self._sphere_link_index]
+            odom.twist.covariance = [0]*36
+            self.odometry_publisher.publish(odom)
 
     def _read_tb_manifest(self):
         # Parameters
